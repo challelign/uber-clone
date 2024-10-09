@@ -3,6 +3,7 @@ import { onboarding } from "@/constants";
 import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import Animated, { FadeInRight } from "react-native-reanimated";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import Swiper from "react-native-swiper";
@@ -38,9 +39,12 @@ const Onboarding = () => {
               resizeMode="contain"
             />
             <View className="flex flex-row items-center justify-center w-full mt-10">
-              <Text className="text-black text-3xl font-bold mx-10 text-center">
+              <Animated.Text
+                className="text-black text-3xl font-bold mx-10 text-center"
+                entering={FadeInRight.delay(300).duration(600)}
+              >
                 {item.title}
-              </Text>
+              </Animated.Text>
             </View>
             <Text className="text-xl font-JakartaSemiBold text-center text-[#858585] mx-10 mt-3">
               {item.description}
